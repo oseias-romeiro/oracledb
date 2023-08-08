@@ -6,3 +6,5 @@ export ORAENV_ASK=NO
 export ORAENV_ASK=YES
 
 dbstart $ORACLE_HOME
+
+echo -e "startup;\n ALTER PLUGGABLE DATABASE pdb1 OPEN;\n exit\n" | sqlplus / as sysdba

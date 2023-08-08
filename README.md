@@ -28,10 +28,20 @@ If you want to access the database externally, you need to perform the following
 2. Export the required ports when running the Docker container:
 
    ```shell
-   docker run -it --name oradb19 --privileged -p <host-port>:<container-port> oseias0romeiro/oracledb:1.0
+   docker run -it --name oradb19 --privileged -p <local-port>:1521 oseias0romeiro/oracledb:1.0
    ```
 
-   Replace `<host-port>` with the desired port on your host machine, and `<container-port>` with the corresponding port inside the container.
+   Replace `<local-port>` with the desired port on your host machine.
+
+## Build local image
+You can customize scripts installation in shell scripts.
+
+- Download [Oracle Database 19c](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html) and move it to this directory
+- Build image and run container
+```sh
+docker build . -t oradb19
+docker run -it --name oradb19 --privileged -p <local-port>:1521 oradb19
+```
 
 ----
 > ### That's it! Feel free to collaborate with the repository and make improvements.
